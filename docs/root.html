@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LevelUp ELO - Pitch Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        .glass-panel { background: rgba(255, 255, 255, 0.95); border: 1px solid #e5e7eb; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .view-section { display: none; }
+        .view-section.active { display: flex; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .nav-btn { transition: all 0.2s; }
+        .nav-btn.active-blue { background-color: #3b82f6; color: white; }
+        .nav-btn.active-orange { background-color: #f97316; color: white; }
+        .nav-btn.active-red { background-color: #ef4444; color: white; }
+        .nav-btn.active-purple { background-color: #8b5cf6; color: white; }
+        .nav-btn.active-teal { background-color: #14b8a6; color: white; }
+        .insight-box { background-color: #f8fafc; border-left-width: 4px; padding: 0.75rem 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1rem; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col z-20">
+        <div class="h-16 flex items-center px-6 border-b border-slate-800">
+            <img src="logo-elo.png" alt="LevelUp" class="h-8 object-contain mr-2" onerror="this.src='https://via.placeholder.com/150x50/1e293b/ffffff?text=LevelUp+ELO'">
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-2" id="sidebar-nav">
+            <button onclick="switchTab('contexto', 'blue')" id="btn-contexto" class="nav-btn w-full flex items-center px-4 py-2.5 hover:bg-slate-800 rounded-lg text-left active-blue">
+                <i class="fa-solid fa-earth-americas w-6"></i> 1. El Reto y Contexto
+            </button>
+            <button onclick="switchTab('tendencia', 'orange')" id="btn-tendencia" class="nav-btn w-full flex items-center px-4 py-2.5 hover:bg-slate-800 rounded-lg text-left">
+                <i class="fa-solid fa-chart-pie w-6"></i> 2. Tracción Global
+            </button>
+            <button onclick="switchTab('individual', 'red')" id="btn-individual" class="nav-btn w-full flex items-center px-4 py-2.5 hover:bg-slate-800 rounded-lg text-left">
+                <i class="fa-solid fa-user-astronaut w-6"></i> 3. Impacto Individual
+            </button>
+            <button onclick="switchTab('pedagogia', 'purple')" id="btn-pedagogia" class="nav-btn w-full flex items-center px-4 py-2.5 hover:bg-slate-800 rounded-lg text-left">
+                <i class="fa-solid fa-brain w-6"></i> 4. Motor Pedagógico
+            </button>
+            <button onclick="switchTab('roadmap', 'teal')" id="btn-roadmap" class="nav-btn w-full flex items-center px-4 py-2.5 hover:bg-slate-800 rounded-lg text-left">
+                <i class="fa-solid fa-rocket w-6"></i> 5. Experiencia & Roadmap
+            </button>
+        </nav>
+        <div class="p-4 border-t border-slate-800 text-xs text-slate-500">
+            <p>Dashboard Social Skin 2026</p>
+            <p>Dataset: 33 estudiantes Activos</p>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full overflow-hidden bg-gray-50">
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8 z-10 shadow-sm">
+            <h1 id="header-title" class="text-xl font-bold text-gray-800">1. El Reto y Validación Temprana</h1>
+            <div class="flex items-center space-x-4">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold border border-blue-200">En Ejecución: Fase 1</span>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-8 relative">
+            
+            <div id="view-contexto" class="view-section active flex-col gap-6">
+                
+                <div class="glass-panel p-8 border-t-4 border-blue-600  flex items-center gap-8">
+                    <div class="w-70 h-30 shrink-0 bg-white rounded-2xl  flex-1 items-center justify-center p-4 relative overflow-hidden">
+                        <img src="logo-elo.png" alt="Logo LevelUp" class="w-90 h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;" class="flex-col items-center text-gray-400 text-center">
+                            <i class="fa-solid fa-cloud-arrow-up text-4xl mb-2 text-blue-300"></i><br><span class="text-xs font-bold">Insertar Logo<br>(logo_grande.png)</span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-3xl font-extrabold text-slate-800 mb-3">Plataforma de Aprendizaje Adaptativo potenciada con IA</h2>
+                        <p class="text-lg text-slate-600 leading-relaxed">Validación en el semillero de matemáticas de una institución pública, con observación directa del usuario, mitigación de fricciones y ciclos de iteración ágiles.</p>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                    Este piloto de validación temprana nace de una necesidad ineludible en el aula: superar la frustración matemática mediante la personalización masiva. Al ser ejecutado directamente por la CEO en su rol dual como docente del semillero, garantizamos un entorno de prueba empírico y sin intermediarios. Este nivel de acceso nos ha permitido observar la adopción orgánica de la herramienta, mitigar fricciones de usabilidad (UX) en tiempo real y ejecutar ciclos de iteración ágiles, asegurando que el algoritmo responda verdaderamente a la diversidad cognitiva de los estudiantes antes de su escalamiento.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="glass-panel p-8 border-t-4 border-blue-600 bg-gradient-to-r from-white to-blue-50">
+                        <h3 class="text-sm font-bold text-gray-500 uppercase mb-4">El Problema: El "Techo de Cristal"</h3>
+                        <p class="text-sm text-gray-700 mb-6">La educación de "talla única" deja a la mayoría sin herramientas. Datos de la convocatoria anterior:</p>
+                        
+                        <div class="flex flex-col space-y-3">
+                            <div class="flex items-center justify-between bg-slate-100 p-3 rounded-lg border-l-4 border-slate-300">
+                                <span class="font-semibold text-slate-700">Inscritos Fase 1</span><span class="text-xl font-bold text-slate-800">34</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-blue-50 p-3 rounded-lg border-l-4 border-blue-300 w-11/12">
+                                <span class="font-semibold text-blue-800">Clasificados Fase 2</span><span class="text-xl font-bold text-blue-900">17</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-orange-50 p-3 rounded-lg border-l-4 border-orange-300 w-3/4">
+                                <span class="font-semibold text-orange-800">Clasificados Fase 3</span><span class="text-xl font-bold text-orange-900">1</span>
+                            </div>
+                            <div class="flex items-center justify-between bg-red-50 p-3 rounded-lg border-l-4 border-red-400 w-1/2">
+                                <span class="font-semibold text-red-800">Final en Medellín</span><span class="text-xl font-bold text-red-900">0</span>
+                            </div>
+                        </div>
+
+                        <div class="w-full h-60 mt-2 bg-gray-100 rounded-lg overflow-hidden border border-gray-200 relative shadow-sm shrink-0">
+                            <img src="Banners1.png" class="w-full h-full object-cover" alt="Olimpiadas UdeA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; this.nextElementSibling.nextElementSibling.style.display='none';">
+                            
+                            <div style="display: none;" class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
+                                <i class="fa-solid fa-camera text-3xl mb-2 text-blue-300"></i><span class="text-xs font-bold text-center px-4">Insertar Foto de Alumnos<br>(s1.jpg)</span>
+                            </div>
+                            
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 to-transparent pt-8 pb-3 px-4 pointer-events-none">
+                                <p class="text-white text-[11px] font-medium tracking-wide drop-shadow-md">
+                                    <i class="fa-solid fa-camera mr-1 text-blue-300 opacity-80"></i> Olimpiadas UdeA
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-8 border-t-4 border-blue-600 bg-gradient-to-r from-white to-blue-50">
+                        <h3 class="text-sm font-bold text-gray-500 uppercase mb-4">Nuestra Hipótesis y Rigor de Prueba</h3>
+                        
+                        <div class="insight-box border-blue-500 mt-0 mb-6 bg-blue-50">
+                            <p class="text-sm text-blue-900 font-medium">Con el entrenamiento adaptativo de LevelUp y la tutoría socrática, un mayor porcentaje superará el embudo. Meta: <b>Llevar al menos a 1 estudiante a la fase presencial.</b></p>
+                        </div>
+                        
+                        <ul class="space-y-4 text-sm text-gray-700 mb-4">
+                            <li class="flex items-start"><i class="fa-solid fa-users text-blue-500 mt-1 w-6"></i> <span><b> Población:</b> 33 estudiantes del semillero con perfiles dispares. Escenario ideal para probar el ELO.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-book text-blue-500 mt-1 w-6"></i> <span><b> Contenido:</b> Bancos de preguntas basados en modelos liberados por la UdeA.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-user-shield text-blue-500 mt-1 w-6"></i> <span><b> Ética y Datos:</b> Consentimiento informado de acudientes y procesamiento cauteloso de datos para seguimiento individual.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-stopwatch text-blue-500 mt-1 w-6"></i> <span><b> Rutina:</b> 1 hora fija semanal en aula (observación) + adopción orgánica en casa.</span></li>
+                        </ul>
+
+                        <div class="w-full h-60 mt-2 bg-gray-100 rounded-lg overflow-hidden border border-gray-200 relative shadow-sm shrink-0">
+                            <img src="s1.jpg" class="w-full h-full object-cover" alt="Estudiantes en el semillero" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; this.nextElementSibling.nextElementSibling.style.display='none';">
+                            
+                            <div style="display: none;" class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
+                                <i class="fa-solid fa-camera text-3xl mb-2 text-blue-300"></i><span class="text-xs font-bold text-center px-4">Insertar Foto de Alumnos<br>(s1.jpg)</span>
+                            </div>
+                            
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 to-transparent pt-8 pb-3 px-4 pointer-events-none">
+                                <p class="text-white text-[11px] font-medium tracking-wide drop-shadow-md">
+                                    <i class="fa-solid fa-camera mr-1 text-blue-300 opacity-80"></i> Estudiantes en el semillero
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-tendencia" class="view-section flex-col gap-6">
+                <p class="text-sm text-slate-600 leading-relaxed mb-6 bg-orange-50/50 p-4 rounded-lg border border-orange-100">
+                <span class="font-bold text-orange-800">El Volumen de Práctica como Indicador de Éxito:</span> Durante las primeras dos semanas de validación, la plataforma superó las métricas proyectadas de adopción orgánica. El alto volumen de preguntas resueltas y las más de 300 interacciones socráticas demuestran que los estudiantes están cumpliendo con la rutina obligatoria en aula y están utilizando LevelUp como su principal herramienta de estudio autónomo. Este nivel de "engagement" es el primer paso crítico antes de medir el delta cognitivo.
+            </p>
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Población Activa</p><h3 class="text-2xl font-bold text-gray-800 mt-1">33</h3><p class="text-xs text-green-600 mt-2"><i class="fa-solid fa-user-check"></i> Estudiantes reales</p></div>
+                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Volumen de Práctica</p><h3 class="text-2xl font-bold text-gray-800 mt-1">2,164</h3><p class="text-xs text-blue-600 mt-2"><i class="fa-solid fa-layer-group"></i> Preguntas resueltas</p></div>
+                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Precisión Promedio</p><h3 class="text-2xl font-bold text-gray-800 mt-1">64.1%</h3><p class="text-xs text-gray-500 mt-2">Tasa de acierto global</p></div>
+                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Intervenciones KatIA</p><h3 class="text-2xl font-bold text-purple-700 mt-1">+300</h3><p class="text-xs text-purple-600 mt-2"><i class="fa-solid fa-robot"></i> Asistencias socráticas</p></div>
+                </div>
+                <div class="glass-panel p-6 border-t-4 border-orange-500">
+                    <h3 class="text-sm font-semibold text-gray-800 mb-4">Curva de Aprendizaje Promedio del Semillero</h3>
+                    <div class="relative w-full flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg overflow-hidden" style="height: 380px;">
+                        <img src="tendencia_promedio.png" alt="" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display: none;" class="flex-col items-center text-gray-400 text-sm text-center px-4"><i class="fa-solid fa-chart-area text-3xl mb-2 text-orange-400"></i><br>Inserta <b>tendencia_promedio.png</b></div>
+                    </div>
+                    <div class="insight-box border-orange-400 mt-4">
+                        <p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> Todos inician con un ELO base en 1000. La curva refleja cómo el puntaje se ajusta al desempeño real del grupo, marcando la línea base (piso técnico) sobre la cual buscaremos escalar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-individual" class="view-section flex-col gap-6">
+                <p class="text-sm text-slate-600 leading-relaxed mb-6 bg-red-50/50 p-4 rounded-lg border border-red-100">
+                <span class="font-bold text-red-800">Desempaquetando la Heterogeneidad del Aula:</span> El promedio global suele ocultar la realidad de los extremos. Estas métricas individuales son el corazón del sistema ELO. Al observar la línea base y la evolución de cada estudiante, confirmamos nuestra hipótesis más importante: la constancia en la resolución de problemas no está reservada únicamente para los perfiles de "alto rendimiento natural". La personalización de la dificultad previene la frustración y mantiene a todos los perfiles en la zona de desarrollo próximo.
+                </p>
+                <div class="grid grid-cols-2 gap-6">
+                    
+                    <div class="glass-panel p-6 border-t-4 border-red-500 flex flex-col">
+                        <h3 class="text-sm font-semibold text-gray-800 mb-4">Línea Base ELO (Heterogeneidad)</h3>
+                        <div class="relative w-full flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg overflow-hidden flex-1" style="min-height: 240px;"><img src="scatter_final_heatmap.png" alt="" class="w-full h-full object-contain" onerror="this.style.display='none';"></div>
+                        <div class="insight-box border-red-400"><p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> Identificamos perfiles críticos que requieren nivelación inmediata para evitar frustración, y talentos base que deben ser impulsados.</p></div>
+                    </div>
+                    <div class="glass-panel p-6 border-t-4 border-red-500 flex flex-col">
+                        <h3 class="text-sm font-semibold text-gray-800 mb-4">Evolución de Nivel ELO (Por Estudiante)</h3>
+                        <div class="relative w-full flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg overflow-hidden flex-1" style="min-height: 240px;"><img src="pendientes.png" alt="" class="w-full h-full object-contain" onerror="this.style.display='none';"></div>
+                        <div class="insight-box border-red-400"><p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> La constancia (>100 preguntas) no está limitada a estudiantes de resultados excepcionales. Alto nivel de engagement general.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-pedagogia" class="view-section flex-col gap-6">
+                <div class="grid grid-cols-5 gap-6">
+                    
+                    <div class="col-span-3 glass-panel p-6 border-t-4 border-purple-600 flex flex flex-col">
+                        
+                        <h3 class="text-sm font-bold text-gray-800 mb-3">Estructura Taxonómica de 3 Niveles</h3>
+                        <p class="text-sm text-gray-700 mb-6">Cada pregunta está etiquetada bajo nuestro manual oficial para perfilar vacíos de conocimiento con precisión quirúrgica: </p>
+                        <ul class="text-xs space-y-2 text-gray-700 mb-5 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <li class="flex items-start"><i class="fa-solid fa-layer-group text-green-500 mr-2 mt-0.5"></i> <span><b>Nivel 1 (Áreas):</b> Aritmética, Álgebra, Geometría, Probabilidad y Estadística, Lógica, Conteo y Combinatoria.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-layer-group text-green-500 mr-2 mt-0.5"></i> <span><b>Nivel 2 (Sub-áreas):</b> Ej. Sistemas Numéricos, Ecuaciones, Probabilidad.</span></li>
+                            <li class="flex items-start"><i class="fa-solid fa-layer-group text-green-500 mr-2 mt-0.5"></i> <span><b>Nivel 3 (Tópicos):</b> Conceptos atómicos como <i>Factorización por agrupación</i>.</span></li>
+                        </ul>
+                        
+                        <div class="relative w-full flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg overflow-hidden flex-1" style="min-height: 230px;">
+                            <img src="desempeno_categorias.png" alt="" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div style="display: none;" class="flex-col items-center text-gray-400 text-sm text-center px-4"><i class="fa-solid fa-chart-bar text-3xl mb-2 text-green-400"></i><br>Inserta <b>desempeno_categorias.png</b></div>
+                        </div>
+                        <div class="insight-box border-green-400 mt-4">
+                            <p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Insights para el Aula:</span> La combinación de datos individuales y por categorías transforma al docente en un estratega basado en evidencia. Sabemos exactamente qué conceptos reforzar en la pizarra.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-span-2 glass-panel overflow-hidden border-t-4 border-purple-600 flex flex-col bg-slate-50">
+                        <div class="bg-gradient-to-br from-purple-100 to-indigo-50 p-5 border-b border-purple-200 flex flex-col items-center text-center">
+                            <img src="KatIA.png" alt="KatIA" class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md mb-2" onerror="this.src='https://via.placeholder.com/150/9333ea/ffffff?text=KatIA'">
+                            <h2 class="text-xl font-bold text-slate-800">KatIA</h2>
+                            <p class="text-purple-700 font-bold text-xs uppercase tracking-wide mt-1">Motor Adaptativo Socrático</p>
+
+                            <div class="flex flex-wrap justify-center gap-1.5 mt-2">
+                                <span class="bg-purple-600 border border-purple-700 text-white text-[10px] px-2 py-1 rounded font-bold shadow-sm"><i class="fa-solid fa-check mr-1"></i> Método Socrático</span>
+                                <span class="bg-purple-600 border border-purple-700 text-white text-[10px] px-2 py-1 rounded font-bold shadow-sm"><i class="fa-solid fa-list-check mr-1"></i> Analizador de Procedimientos</span>
+                                <span class="bg-purple-600 border border-purple-700 text-white text-[10px] px-2 py-1 rounded font-bold shadow-sm"><i class="fa-solid fa-lightbulb mr-1"></i> Recomendador</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-5 flex-1 flex flex-col gap-4">
+                            
+                            <div>
+                                <h3 class="text-xs text-purple-900 font-bold uppercase mb-1">Perfil Operativo y Visión Pedagógica </h3>
+                                <p class="text-xs text-gray-700 leading-relaxed border-l-2 border-purple-300 pl-2">KatIA es el núcleo interactivo de la plataforma. Por diseño, KatIA tiene prohibido entregar respuestas directas. En su lugar, actúa como una tutora socrática disponible 24/7. Al detectar un bloqueo, el motor cruza el historial ELO del estudiante con la taxonomía del problema para intervenir de forma milimétrica: fomenta la autonomía cognitiva, audita la lógica procedimental en tiempo real y transforma el error en el principal catalizador del aprendizaje matemático.</p>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-purple-100 relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-purple-500"></div>
+                                <h4 class="font-bold text-purple-900 text-xs uppercase mb-1 flex items-center"><i class="fa-solid fa-comments text-purple-500 w-5"></i> 1. Tutoría Socrática</h4>
+                                <p class="text-gray-600 text-xs leading-relaxed">No entrega respuestas directas. Detecta el nodo de dificultad y formula preguntas guía progresivas para que el estudiante construya su propio camino lógico hacia la solución, fortaleciendo la autonomía.</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-purple-100 relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
+                                <h4 class="font-bold text-purple-900 text-xs uppercase mb-1 flex items-center"><i class="fa-solid fa-microscope text-blue-500 w-5"></i> 2. Analizador Procedimental</h4>
+                                <p class="text-gray-600 text-xs leading-relaxed">Evalúa el procedimiento matemático paso a paso. Identifica exactamente dónde ocurre la desviación algorítmica (ej. error de signo) en lugar de calificar solo el resultado final binario.</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-purple-100 relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-green-500"></div>
+                                <h4 class="font-bold text-purple-900 text-xs uppercase mb-1 flex items-center"><i class="fa-solid fa-bullseye text-green-500 w-5"></i> 3. Recomendador Taxonómico</h4>
+                                <p class="text-gray-600 text-xs leading-relaxed">Ante caídas de ELO sostenidas, el algoritmo emite alertas sugiriendo regresar a repasar conceptos base antes de continuar intentando ejercicios de alta dificultad competitiva.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-roadmap" class="view-section flex-col gap-6">
+                <div class="grid grid-cols-2 gap-6">
+                    
+                    <div class="glass-panel p-6 border-t-4 border-teal-500 flex flex-col gap-4">
+                        <h3 class="text-sm font-bold text-gray-800 mb-2 uppercase">Nuestra Interfaz: LevelUp en Acción</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                        La teoría se vuelve práctica cuando el usuario interactúa. La siguiente captura de pantalla ilustra el núcleo de nuestra estrategia pedagógica: un estudiante enfrentando un problema de Olimpiadas, asistido en tiempo real por KatIA. Observe cómo la tutora no entrega la respuesta; en su lugar, el sistema detecta el error algorítmico y genera un diálogo socrático diseñado para catalizar el "momento eureka". Esta es la experiencia que estamos iterando y perfeccionando antes del lanzamiento a mayor escala.
+                        </p>
+                        
+                        <div class="w-full h-1300 mt-2 bg-gray-100 rounded-lg overflow-hidden border border-gray-200 relative shadow-sm shrink-0">
+                            <img src="s2.png" class="w-full h-full object-cover" alt="Olimpiadas UdeA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; this.nextElementSibling.nextElementSibling.style.display='none';">
+                            
+                            <div style="display: none;" class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
+                                <i class="fa-solid fa-camera text-3xl mb-2 text-blue-300"></i><span class="text-xs font-bold text-center px-4">Insertar Foto de Alumnos<br>(s1.jpg)</span>
+                            </div>
+                            
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 to-transparent pt-8 pb-3 px-4 pointer-events-none">
+                                <p class="text-white text-[11px] font-medium tracking-wide drop-shadow-md">
+                                    <i class="fa-solid fa-camera mr-1 text-blue-300 opacity-80"></i> Chat de un estudiante con KatIA
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-slate-200 text-center">
+                            <p class="text-sm font-bold text-slate-800 italic">"La tecnología potencia al maestro, no lo reemplaza."</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-6 border-t-4 border-teal-500 border-slate-800 bg-slate-50 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-sm font-bold text-slate-800 mb-6 uppercase">Visión a Corto Plazo: Roadmap</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-teal-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 mt-1">1</div>
+                                    <div class="ml-4">
+                                        <h4 class="text-sm font-bold text-slate-800">UX / UI Iterativa</h4>
+                                        <p class="text-xs text-slate-600 mt-1">Pulir las fricciones de interfaz identificadas mediante la observación directa en aula. Cada fricción eliminada previene el abandono.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 mt-1">2</div>
+                                    <div class="ml-4">
+                                        <h4 class="text-sm font-bold text-slate-800">Semana 4: Primer Delta</h4>
+                                        <p class="text-xs text-slate-600 mt-1">Medición del primer "delta" de crecimiento real de habilidades en uso autónomo, confirmando si el ELO refleja ganancia cognitiva comprobable.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 mt-1">3</div>
+                                    <div class="ml-4">
+                                        <h4 class="text-sm font-bold text-slate-800">Mayo - Junio: Fase 1</h4>
+                                        <p class="text-xs text-slate-600 mt-1">Monitorización de resultados proyectados en los intentos oficiales de las Olimpiadas. El éxito final se medirá en clasificados, no solo en usuarios activos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full h-130 mt-2 bg-gray-100 rounded-lg overflow-hidden border border-gray-200 relative shadow-sm shrink-0">
+                            <img src="s3.jpg" class="w-full h-full object-cover" alt="Olimpiadas UdeA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; this.nextElementSibling.nextElementSibling.style.display='none';">
+                            
+                            <div style="display: none;" class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
+                                <i class="fa-solid fa-camera text-3xl mb-2 text-blue-300"></i><span class="text-xs font-bold text-center px-4">Insertar Foto de Alumnos<br>(s1.jpg)</span>
+                            </div>
+                            
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 to-transparent pt-8 pb-3 px-4 pointer-events-none">
+                                <p class="text-white text-[11px] font-medium tracking-wide drop-shadow-md">
+                                    <i class="fa-solid fa-camera mr-1 text-blue-300 opacity-80"></i> Experiencia de usuario en aula con el ELO
+                                </p>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function switchTab(viewId, colorTheme) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.getElementById('view-' + viewId).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.className = 'nav-btn w-full flex items-center px-4 py-2.5 hover:bg-slate-800 rounded-lg text-left text-slate-300';
+            });
+            
+            document.getElementById('btn-' + viewId).classList.add('active-' + colorTheme);
+
+            let titles = {
+                'contexto': '1. El Reto y Validación Temprana',
+                'tendencia': '2. Tracción y Curva Global',
+                'individual': '3. Impacto Analítico Individual',
+                'pedagogia': '4. Motor Pedagógico y Categorías',
+                'roadmap': '5. Experiencia y Próximos Pasos'
+            };
+            document.getElementById('header-title').innerText = titles[viewId];
+        }
+    </script>
+</body>
+</html>
