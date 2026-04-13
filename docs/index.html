@@ -82,7 +82,10 @@
                 <div class="grid grid-cols-2 gap-6">
                     <div class="glass-panel p-8 border-t-4 border-blue-600 bg-gradient-to-r from-white to-blue-50">
                         <h3 class="text-sm font-bold text-gray-500 uppercase mb-4">El Problema: El "Techo de Cristal"</h3>
-                        <p class="text-sm text-gray-700 mb-6">La educación de "talla única" deja a la mayoría sin herramientas. Datos de la convocatoria anterior:</p>
+                        <p class="text-sm text-gray-700 mb-6">Las Olimpiadas de Matemáticas de la UdeA constituyen un referente a nivel nacional y representan un entorno altamente competitivo. Los datos de la participación anterior evidencian una caída progresiva en cada fase, configurando un “techo de cristal” que limita el avance de la mayoría de los estudiantes.
+
+                        Este fenómeno responde a la dificultad de las pruebas y a la falta de sistemas de entrenamiento capaces de adaptarse a la diversidad de perfiles.
+                        </p>
                         
                         <div class="flex flex-col space-y-3">
                             <div class="flex items-center justify-between bg-slate-100 p-3 rounded-lg border-l-4 border-slate-300">
@@ -148,17 +151,21 @@
             </div>
 
             <div id="view-tendencia" class="view-section flex-col gap-6">
-                <p class="text-sm text-slate-600 leading-relaxed mb-6 bg-orange-50/50 p-4 rounded-lg border border-orange-100">
+
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Población Activa</p><h3 class="text-2xl font-bold text-gray-800 mt-1">33</h3><p class="text-xs text-green-600 mt-2"><i class="fa-solid fa-user-check"></i> Estudiantes reales</p></div>
+                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Volumen de Práctica</p><h3 class="text-2xl font-bold text-gray-800 mt-1">2985</h3><p class="text-xs text-blue-600 mt-2"><i class="fa-solid fa-layer-group"></i> Preguntas resueltas</p></div>
+                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Precisión Promedio</p><h3 class="text-2xl font-bold text-gray-800 mt-1">55.61%</h3><p class="text-xs text-gray-500 mt-2">Tasa de acierto global</p></div>
+                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Intervenciones KatIA</p><h3 class="text-2xl font-bold text-purple-700 mt-1">33</h3><p class="text-xs text-purple-600 mt-2"><i class="fa-solid fa-robot"></i> Asistencias socráticas</p></div>
+                </div>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-6 bg-orange-50/50 p-4 rounded-lg border border-orange-100">
                 <span class="font-bold text-orange-800">Engagement como condición necesaria (pero no suficiente)</span> El alto volumen de práctica y las interacciones socráticas observadas durante las primeras semanas validan la adopción del sistema como herramienta principal de estudio autónomo.
 
                 Este nivel de engagement constituye una condición necesaria para el aprendizaje, aunque no garantiza por sí mismo la ganancia cognitiva, la cual será evaluada en fases posteriores mediante métricas de desempeño.
-            </p>
-                <div class="grid grid-cols-4 gap-4">
-                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Población Activa</p><h3 class="text-2xl font-bold text-gray-800 mt-1">33</h3><p class="text-xs text-green-600 mt-2"><i class="fa-solid fa-user-check"></i> Estudiantes reales</p></div>
-                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Volumen de Práctica</p><h3 class="text-2xl font-bold text-gray-800 mt-1">2,164</h3><p class="text-xs text-blue-600 mt-2"><i class="fa-solid fa-layer-group"></i> Preguntas resueltas</p></div>
-                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Precisión Promedio</p><h3 class="text-2xl font-bold text-gray-800 mt-1">64.1%</h3><p class="text-xs text-gray-500 mt-2">Tasa de acierto global</p></div>
-                    <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Intervenciones KatIA</p><h3 class="text-2xl font-bold text-purple-700 mt-1">+300</h3><p class="text-xs text-purple-600 mt-2"><i class="fa-solid fa-robot"></i> Asistencias socráticas</p></div>
-                </div>
+                Adicionalmente, la tasa de activación del asistente KatIA es baja (~1.5%), dado que su uso depende de la iniciativa del estudiante.
+                    
+                Este comportamiento sugiere que la principal oportunidad de mejora no reside en el modelo pedagógico, sino en la integración del sistema de ayuda dentro del flujo natural de resolución.
+                </p>
                 <div class="glass-panel p-6 border-t-4 border-orange-500">
                     <h3 class="text-sm font-semibold text-gray-800 mb-4">Dinámica agregada de ajuste del sistema ELO</h3>
                     <div class="relative w-full flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg overflow-hidden" style="height: 380px;">
@@ -175,16 +182,17 @@
 
             <div id="view-individual" class="view-section flex-col gap-6">
                 <p class="text-sm text-slate-600 leading-relaxed mb-6 bg-red-50/50 p-4 rounded-lg border border-red-100">
-                <span class="font-bold text-red-800">Desempaquetando la Heterogeneidad del Aula:</span> El promedio global suele ocultar la realidad de los extremos. Estas métricas individuales son el corazón del sistema ELO. Al observar la línea base y la evolución de cada estudiante, confirmamos nuestra hipótesis más importante: la constancia en la resolución de problemas no está reservada únicamente para los perfiles de "alto rendimiento natural". La personalización de la dificultad previene la frustración y mantiene a todos los perfiles en la zona de desarrollo próximo.
+                <span class="font-bold text-red-800">Desempaquetando la Heterogeneidad del Aula:</span> El promedio global suele ocultar la realidad de los extremos. Estas métricas individuales son el corazón del sistema ELO. Al observar la línea base y la evolución de cada estudiante podemos ver que la constancia en la resolución de problemas no está reservada únicamente para los perfiles de "alto rendimiento natural".
                 </p>
                 <div class="grid grid-cols-2 gap-6">
                     
                     <div class="glass-panel p-6 border-t-4 border-red-500 flex flex-col">
                         <h3 class="text-sm font-semibold text-gray-800 mb-4">Heterogeneidad estructural del aula</h3>
                         <div class="relative w-full flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg overflow-hidden flex-1" style="min-height: 240px;"><img src="scatter_final_heatmap.png" alt="" class="w-full h-full object-contain" onerror="this.style.display='none';"></div>
-                        <div class="insight-box border-red-400"><p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> El análisis individual revela una dispersión significativa en los niveles iniciales de habilidad, confirmando la necesidad de un sistema adaptativo.
+                        <div class="insight-box border-red-400"><p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> La distribución final del ELO, combinada con el volumen de práctica por estudiante, permite identificar perfiles diferenciados dentro del grupo.
+                        De esta manera es posible señalar qué estudiantes requieren atención prioritaria, ya sea por bajo desempeño, baja práctica o combinaciones de ambos factores.
 
-                        La evolución diferenciada de los estudiantes respalda la hipótesis de que la personalización de la dificultad permite sostener la participación incluso en perfiles con bajo desempeño inicial, evitando la deserción por frustración.</p></div>
+                        Este enfoque habilita una intervención pedagógica más focalizada, basada en la identificación de patrones observables en el comportamiento del grupo.</p></div>
                     </div>
                     <div class="glass-panel p-6 border-t-4 border-red-500 flex flex-col">
                         <h3 class="text-sm font-semibold text-gray-800 mb-4">Estructura estadística del cambio en ELO</h3>
@@ -203,7 +211,7 @@
                     <div class="col-span-3 glass-panel p-6 border-t-4 border-purple-600 flex flex flex-col">
                         
                         <h3 class="text-sm font-bold text-gray-800 mb-3">Estructura Taxonómica de 3 Niveles</h3>
-                        <p class="text-sm text-gray-700 mb-6">Cada pregunta está etiquetada bajo nuestro manual oficial para perfilar vacíos de conocimiento con precisión quirúrgica: </p>
+                        <p class="text-sm text-gray-700 mb-6">Cada pregunta está etiquetada en una jerarquía de tres niveles (área, sub-área y tópico), lo que permite identificar patrones de desempeño y localizar con precisión los vacíos de conocimiento a nivel individual.</p>
                         <ul class="text-xs space-y-2 text-gray-700 mb-5 bg-gray-50 p-4 rounded-lg border border-gray-100">
                             <li class="flex items-start"><i class="fa-solid fa-layer-group text-green-500 mr-2 mt-0.5"></i> <span><b>Nivel 1 (Áreas):</b> Aritmética, Álgebra, Geometría, Probabilidad y Estadística, Lógica, Conteo y Combinatoria.</span></li>
                             <li class="flex items-start"><i class="fa-solid fa-layer-group text-green-500 mr-2 mt-0.5"></i> <span><b>Nivel 2 (Sub-áreas):</b> Ej. Sistemas Numéricos, Ecuaciones, Probabilidad.</span></li>
@@ -215,7 +223,7 @@
                             <div style="display: none;" class="flex-col items-center text-gray-400 text-sm text-center px-4"><i class="fa-solid fa-chart-bar text-3xl mb-2 text-green-400"></i><br>Inserta <b>desempeno_categorias.png</b></div>
                         </div>
                         <div class="insight-box border-green-400 mt-4">
-                            <p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Insights para el Aula:</span> La combinación de datos individuales y por categorías transforma al docente en un estratega basado en evidencia. Sabemos exactamente qué conceptos reforzar en la pizarra.</p>
+                            <p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Insights para el Aula:</span> La combinación de datos individuales y por categorías transforma al docente en un estratega basado en evidencia. Sabemos exactamente qué conceptos reforzar en la pizarra. </p>
                         </div>
                     </div>
 
@@ -223,7 +231,7 @@
                         <div class="bg-gradient-to-br from-purple-100 to-indigo-50 p-5 border-b border-purple-200 flex flex-col items-center text-center">
                             <img src="KatIA.png" alt="KatIA" class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md mb-2" onerror="this.src='https://via.placeholder.com/150/9333ea/ffffff?text=KatIA'">
                             <h2 class="text-xl font-bold text-slate-800">KatIA</h2>
-                            <p class="text-purple-700 font-bold text-xs uppercase tracking-wide mt-1">Motor Adaptativo Socrático</p>
+                            <p class="text-purple-700 font-bold text-xs uppercase tracking-wide mt-1">Sistema de soporte socrático</p>
 
                             <div class="flex flex-wrap justify-center gap-1.5 mt-2">
                                 <span class="bg-purple-600 border border-purple-700 text-white text-[10px] px-2 py-1 rounded font-bold shadow-sm"><i class="fa-solid fa-check mr-1"></i> Método Socrático</span>
@@ -236,25 +244,27 @@
                             
                             <div>
                                 <h3 class="text-xs text-purple-900 font-bold uppercase mb-1">Perfil Operativo y Visión Pedagógica </h3>
-                                <p class="text-xs text-gray-700 leading-relaxed border-l-2 border-purple-300 pl-2">KatIA es el núcleo interactivo de la plataforma. Por diseño, KatIA tiene prohibido entregar respuestas directas. En su lugar, actúa como una tutora socrática disponible 24/7. Al detectar un bloqueo, el motor cruza el historial ELO del estudiante con la taxonomía del problema para intervenir de forma milimétrica: fomenta la autonomía cognitiva, audita la lógica procedimental en tiempo real y transforma el error en el principal catalizador del aprendizaje matemático.</p>
+                                <p class="text-xs text-gray-700 leading-relaxed border-l-2 border-purple-300 pl-2">KatIA actúa como un sistema de apoyo durante la resolución de problemas. Su función es asistir al estudiante en momentos de dificultad, promoviendo la construcción activa del razonamiento.
+
+                                En esta fase, su uso depende de la activación voluntaria del usuario, lo que permite observar patrones reales de interacción con el soporte pedagógico.</p>
                             </div>
 
                             <div class="bg-white p-4 rounded-lg shadow-sm border border-purple-100 relative overflow-hidden">
                                 <div class="absolute left-0 top-0 bottom-0 w-1 bg-purple-500"></div>
                                 <h4 class="font-bold text-purple-900 text-xs uppercase mb-1 flex items-center"><i class="fa-solid fa-comments text-purple-500 w-5"></i> 1. Tutoría Socrática</h4>
-                                <p class="text-gray-600 text-xs leading-relaxed">No entrega respuestas directas. Detecta el nodo de dificultad y formula preguntas guía progresivas para que el estudiante construya su propio camino lógico hacia la solución, fortaleciendo la autonomía.</p>
+                                <p class="text-gray-600 text-xs leading-relaxed">En lugar de entregar respuestas, KatIA formula preguntas guía orientadas a desbloquear el razonamiento del estudiante, promoviendo la construcción activa de la solución.</p>
                             </div>
                             
                             <div class="bg-white p-4 rounded-lg shadow-sm border border-purple-100 relative overflow-hidden">
                                 <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
                                 <h4 class="font-bold text-purple-900 text-xs uppercase mb-1 flex items-center"><i class="fa-solid fa-microscope text-blue-500 w-5"></i> 2. Analizador Procedimental</h4>
-                                <p class="text-gray-600 text-xs leading-relaxed">Evalúa el procedimiento matemático paso a paso. Identifica exactamente dónde ocurre la desviación algorítmica (ej. error de signo) en lugar de calificar solo el resultado final binario.</p>
+                                <p class="text-gray-600 text-xs leading-relaxed">El sistema evalúa los pasos intermedios del estudiante, identificando errores específicos en el proceso (por ejemplo, errores de signo o de operación), más allá del resultado final.</p>
                             </div>
                             
                             <div class="bg-white p-4 rounded-lg shadow-sm border border-purple-100 relative overflow-hidden">
                                 <div class="absolute left-0 top-0 bottom-0 w-1 bg-green-500"></div>
                                 <h4 class="font-bold text-purple-900 text-xs uppercase mb-1 flex items-center"><i class="fa-solid fa-bullseye text-green-500 w-5"></i> 3. Recomendador Taxonómico</h4>
-                                <p class="text-gray-600 text-xs leading-relaxed">Ante caídas de ELO sostenidas, el algoritmo emite alertas sugiriendo regresar a repasar conceptos base antes de continuar intentando ejercicios de alta dificultad competitiva.</p>
+                                <p class="text-gray-600 text-xs leading-relaxed">Ante patrones de bajo desempeño, el sistema sugiere reforzar conceptos base antes de continuar con problemas de mayor dificultad, utilizando la estructura taxonómica como referencia.</p>
                             </div>
                         </div>
                     </div>
@@ -297,14 +307,14 @@
                                     <div class="bg-teal-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 mt-1">1</div>
                                     <div class="ml-4">
                                         <h4 class="text-sm font-bold text-slate-800">UX / UI Iterativa</h4>
-                                        <p class="text-xs text-slate-600 mt-1">Pulir las fricciones de interfaz identificadas mediante la observación directa en aula. Cada fricción eliminada previene el abandono.</p>
+                                        <p class="text-xs text-slate-600 mt-1">Pulir las fricciones de interfaz identificadas mediante la observación directa en aula, con énfasis en la integración del soporte pedagógico dentro del flujo de resolución. Cada fricción eliminada reduce el abandono y fortalece la experiencia de aprendizaje.</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
                                     <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 mt-1">2</div>
                                     <div class="ml-4">
                                         <h4 class="text-sm font-bold text-slate-800">Semana 4: Primer Delta</h4>
-                                        <p class="text-xs text-slate-600 mt-1">Medición del primer "delta" de crecimiento real de habilidades en uso autónomo, confirmando si el ELO refleja ganancia cognitiva comprobable.</p>
+                                        <p class="text-xs text-slate-600 mt-1">Medición del primer "delta" de crecimiento real de habilidades en uso autónomo, junto con el análisis de su distribución para evaluar la consistencia y el potencial predictivo del modelo ELO.</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
