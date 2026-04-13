@@ -114,10 +114,12 @@
                     </div>
 
                     <div class="glass-panel p-8 border-t-4 border-blue-600 bg-gradient-to-r from-white to-blue-50">
-                        <h3 class="text-sm font-bold text-gray-500 uppercase mb-4">Nuestra Hipótesis y Rigor de Prueba</h3>
+                        <h3 class="text-sm font-bold text-gray-500 uppercase mb-4">Hipótesis de intervención</h3>
                         
                         <div class="insight-box border-blue-500 mt-0 mb-6 bg-blue-50">
-                            <p class="text-sm text-blue-900 font-medium">Con el entrenamiento adaptativo de LevelUp y la tutoría socrática, un mayor porcentaje superará el embudo. Meta: <b>Llevar al menos a 1 estudiante a la fase presencial.</b></p>
+                            <p class="text-sm text-blue-900 font-medium">Un sistema de entrenamiento adaptativo basado en ELO, combinado con tutoría socrática, incrementa la probabilidad de que estudiantes de distintos niveles de habilidad progresen dentro del embudo competitivo.
+
+                            El objetivo no es maximizar el promedio, sino desplazar la distribución completa hacia niveles superiores de desempeño.</b></p>
                         </div>
                         
                         <ul class="space-y-4 text-sm text-gray-700 mb-4">
@@ -146,7 +148,9 @@
 
             <div id="view-tendencia" class="view-section flex-col gap-6">
                 <p class="text-sm text-slate-600 leading-relaxed mb-6 bg-orange-50/50 p-4 rounded-lg border border-orange-100">
-                <span class="font-bold text-orange-800">El Volumen de Práctica como Indicador de Éxito:</span> Durante las primeras dos semanas de validación, la plataforma superó las métricas proyectadas de adopción orgánica. El alto volumen de preguntas resueltas y las más de 300 interacciones socráticas demuestran que los estudiantes están cumpliendo con la rutina obligatoria en aula y están utilizando LevelUp como su principal herramienta de estudio autónomo. Este nivel de "engagement" es el primer paso crítico antes de medir el delta cognitivo.
+                <span class="font-bold text-orange-800">Engagement como condición necesaria (pero no suficiente):</span>El alto volumen de práctica y las interacciones socráticas observadas durante las primeras semanas validan la adopción del sistema como herramienta principal de estudio autónomo.
+
+                Este nivel de engagement constituye una condición necesaria para el aprendizaje, aunque no garantiza por sí mismo la ganancia cognitiva, la cual será evaluada en fases posteriores mediante métricas de desempeño.
             </p>
                 <div class="grid grid-cols-4 gap-4">
                     <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Población Activa</p><h3 class="text-2xl font-bold text-gray-800 mt-1">33</h3><p class="text-xs text-green-600 mt-2"><i class="fa-solid fa-user-check"></i> Estudiantes reales</p></div>
@@ -155,13 +159,15 @@
                     <div class="glass-panel p-5 border-l-4 border-orange-400"><p class="text-xs text-gray-500 font-semibold uppercase">Intervenciones KatIA</p><h3 class="text-2xl font-bold text-purple-700 mt-1">+300</h3><p class="text-xs text-purple-600 mt-2"><i class="fa-solid fa-robot"></i> Asistencias socráticas</p></div>
                 </div>
                 <div class="glass-panel p-6 border-t-4 border-orange-500">
-                    <h3 class="text-sm font-semibold text-gray-800 mb-4">Curva de Aprendizaje Promedio del Semillero</h3>
+                    <h3 class="text-sm font-semibold text-gray-800 mb-4">Dinámica agregada de ajuste del sistema ELO</h3>
                     <div class="relative w-full flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg overflow-hidden" style="height: 380px;">
                         <img src="tendencia_promedio.png" alt="" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div style="display: none;" class="flex-col items-center text-gray-400 text-sm text-center px-4"><i class="fa-solid fa-chart-area text-3xl mb-2 text-orange-400"></i><br>Inserta <b>tendencia_promedio.png</b></div>
                     </div>
                     <div class="insight-box border-orange-400 mt-4">
-                        <p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> Todos inician con un ELO base en 1000. La curva refleja cómo el puntaje se ajusta al desempeño real del grupo, marcando la línea base (piso técnico) sobre la cual buscaremos escalar.</p>
+                        <p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> Todos los estudiantes parten de un ELO base de 1000. La trayectoria promedio refleja el proceso de calibración del sistema frente al desempeño real del grupo, estableciendo un piso técnico inicial sobre el cual se construyen las trayectorias individuales.
+
+                        Más que evidenciar crecimiento, esta curva representa la estabilización del modelo adaptativo y su capacidad para discriminar niveles de habilidad en un entorno heterogéneo.</p>
                     </div>
                 </div>
             </div>
@@ -173,12 +179,15 @@
                 <div class="grid grid-cols-2 gap-6">
                     
                     <div class="glass-panel p-6 border-t-4 border-red-500 flex flex-col">
-                        <h3 class="text-sm font-semibold text-gray-800 mb-4">Línea Base ELO (Heterogeneidad)</h3>
+                        <h3 class="text-sm font-semibold text-gray-800 mb-4">Heterogeneidad estructural del aula</h3>
                         <div class="relative w-full flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg overflow-hidden flex-1" style="min-height: 240px;"><img src="scatter_final_heatmap.png" alt="" class="w-full h-full object-contain" onerror="this.style.display='none';"></div>
-                        <div class="insight-box border-red-400"><p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> Identificamos perfiles críticos que requieren nivelación inmediata para evitar frustración, y talentos base que deben ser impulsados.</p></div>
+                        <div class="insight-box border-red-400"><p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> IEl análisis individual revela una dispersión significativa en los niveles iniciales de habilidad, confirmando la necesidad de un sistema adaptativo.
+
+                        La evolución diferenciada de los estudiantes respalda la hipótesis de que la personalización de la dificultad permite sostener la participación incluso en perfiles con bajo desempeño inicial, evitando la deserción por frustración.
+                    </p></div>
                     </div>
                     <div class="glass-panel p-6 border-t-4 border-red-500 flex flex-col">
-                        <h3 class="text-sm font-semibold text-gray-800 mb-4">Evolución de Nivel ELO (Por Estudiante)</h3>
+                        <h3 class="text-sm font-semibold text-gray-800 mb-4">Distribución de la tasa de crecimiento por estudiante</h3>
                         <div class="relative w-full flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg overflow-hidden flex-1" style="min-height: 240px;"><img src="pendientes.png" alt="" class="w-full h-full object-contain" onerror="this.style.display='none';"></div>
                         <div class="insight-box border-red-400"><p class="text-xs text-slate-700 leading-relaxed"><span class="font-bold"><i class="fa-solid fa-lightbulb text-yellow-500 mr-1"></i> Análisis:</span> La constancia (>100 preguntas) no está limitada a estudiantes de resultados excepcionales. Alto nivel de engagement general.</p></div>
                     </div>
